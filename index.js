@@ -26,7 +26,7 @@ const client = new MongoClient(uri, {
 async function run() {
     try {
        
-        await client.connect();
+   
         console.log('Connected to MongoDB');
 
         // Collections
@@ -137,7 +137,7 @@ async function run() {
                 console.log(`✅ Found ${events.length} events for ${normalizedEmail}`);
                 return res.status(200).json(events);
             } catch (error) {
-                console.error("🔥 Error fetching my events:", error);
+                console.error("Error fetching my events:", error);
                 return res.status(500).json({ error: `Failed to fetch my events: ${error.message}` });
             }
         });
