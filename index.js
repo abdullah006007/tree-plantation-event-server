@@ -25,7 +25,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
     try {
-        // Connect to MongoDB
+       
         await client.connect();
         console.log('Connected to MongoDB');
 
@@ -65,7 +65,7 @@ async function run() {
             }
         });
 
-        // Create Event API
+     
         app.post('/events', async (req, res) => {
             try {
                 const eventData = {
@@ -79,7 +79,7 @@ async function run() {
                     createdAt: new Date(),
                 };
 
-                // Validate required fields
+              
                 const requiredFields = ['title', 'description', 'eventType', 'thumbnail', 'location', 'date', 'userEmail'];
                 for (const field of requiredFields) {
                     if (!eventData[field]) {
@@ -87,7 +87,7 @@ async function run() {
                     }
                 }
 
-                // Validate future date
+        
                 if (eventData.date <= new Date()) {
                     return res.status(400).json({ error: 'Event date must be in the future' });
                 }
@@ -100,7 +100,7 @@ async function run() {
             }
         });
 
-        // Get Upcoming Events API
+ 
         app.get('/events/upcoming', async (req, res) => {
             try {
                 const currentDate = new Date();
