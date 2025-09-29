@@ -353,7 +353,7 @@ async function run() {
             res.send('Server is running successfully');
         });
 
-        // Send a ping to confirm successful connection
+        
        
     } catch (error) {
         console.error('Error running server:', error);
